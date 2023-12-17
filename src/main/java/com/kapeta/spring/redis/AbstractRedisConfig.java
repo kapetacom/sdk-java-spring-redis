@@ -42,10 +42,8 @@ abstract public class AbstractRedisConfig {
     @Bean
     public JedisConnectionFactory jedisConnectionFactory(KapetaConfigurationProvider.ResourceInfo redisInfo) {
         RedisStandaloneConfiguration config = new RedisStandaloneConfiguration(redisInfo.getHost(), Integer.parseInt(redisInfo.getPort()));
-        config.setDatabase(1);
-        if (StringUtils.isNotBlank(redisInfo.getCredentials().get("database"))) {
-            config.setDatabase(Integer.parseInt(redisInfo.getCredentials().get("database")));
-        }
+        config.setDatabase((Integer) redisInfo.getOptions().getOrDefault("database", 1));
+
         if (StringUtils.isNotBlank(redisInfo.getCredentials().get("username"))) {
             config.setUsername(redisInfo.getCredentials().get("username"));
 
