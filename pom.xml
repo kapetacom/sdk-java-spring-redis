@@ -6,7 +6,7 @@
 
     <groupId>com.kapeta.sdk</groupId>
     <artifactId>redis</artifactId>
-    <version>0.1.0</version>
+    <version>0.0.1</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Redis support for Kapeta Spring Boot SDK</description>
@@ -127,6 +127,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>5.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
