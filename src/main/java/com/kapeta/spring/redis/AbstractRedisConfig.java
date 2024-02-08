@@ -7,6 +7,7 @@ package com.kapeta.spring.redis;
 
 
 import com.kapeta.spring.config.providers.KapetaConfigurationProvider;
+import com.kapeta.spring.config.providers.types.ResourceInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,12 +36,12 @@ abstract public class AbstractRedisConfig {
     }
 
     @Bean("redisInfo")
-    public KapetaConfigurationProvider.ResourceInfo redisInfo() {
+    public ResourceInfo redisInfo() {
         return configurationProvider.getResourceInfo(RESOURCE_TYPE, PORT_TYPE, resourceName);
     }
 
     @Bean
-    public JedisConnectionFactory jedisConnectionFactory(KapetaConfigurationProvider.ResourceInfo redisInfo) {
+    public JedisConnectionFactory jedisConnectionFactory(ResourceInfo redisInfo) {
         RedisStandaloneConfiguration config = new RedisStandaloneConfiguration(redisInfo.getHost(), Integer.parseInt(redisInfo.getPort()));
         config.setDatabase((Integer) redisInfo.getOptions().getOrDefault("database", 1));
 

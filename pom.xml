@@ -6,7 +6,7 @@
 
     <groupId>com.kapeta</groupId>
     <artifactId>redis</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Redis support for Kapeta Spring Boot SDK</description>
